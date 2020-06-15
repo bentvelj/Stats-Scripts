@@ -14,9 +14,9 @@ if(CASE == 1): ## NO TEST EXAMPLES
     Ha = input("Alternative Hypothesis (Enter <, >, or =/=): ")
     tails = 2 if Ha == "=/=" else 1
     test_stat = (xb1 - xb2)/((s1**2/n1 + s2**2/n2))**0.5
-    crit_val = norm.ppf(alpha/tails) if Ha == "<" else norm.ppf(1-alpha/tails)
-    p_val = tails*norm.cdf(-test_stat)
-    print("Test Stat = {}".format(test_stat))
+    crit_val = norm.ppf(alpha/tails) if Ha == "<" else norm.ppf((1-alpha)/tails)
+    p_val = tails*norm.cdf(-abs(test_stat))
+    print("\nTest Stat = {}".format(test_stat))
     print("Crit. Value = {}".format(crit_val))
     print("P-Value = {}".format(p_val))
     print("{} the Ho!".format("Accept" if test_stat < crit_val else "Reject"))
@@ -34,7 +34,7 @@ elif(CASE==2):
     sp = ((n1-1)*s1**2 + (n2-1)*s2**2)/(n1 + n2-2)
     test_stat = (xb1 - xb2)/((sp*(1/n1+1/n2))**0.5)
     crit_val = -abs(t.ppf(alpha/tails,n1+n2-2)) if Ha == "<" else abs(t.ppf(alpha/tails,n1+n2-2))
-    print("Test Stat = {}".format(test_stat))
+    print("\nTest Stat = {}".format(test_stat))
     print("Crit. Value = {}".format(crit_val))
     print("{} the Ho!".format("Accept" if test_stat < crit_val else "Reject")) 
         
@@ -52,6 +52,6 @@ elif(CASE==3):
     test_stat = (xb1 - xb2)/(s1**2/n1+s2**2/n2)**0.5
     df = int((s1**2/n1+s2**2/n2)**2/((s1**2/n1)**2/(n1-1)+(s2**2/n2)**2/(n2-1)))
     crit_val = -abs(t.ppf(alpha/tails,df)) if Ha == "<" else abs(t.ppf(alpha/tails,df))
-    print("Test Stat = {}".format(test_stat))
+    print("\nTest Stat = {}".format(test_stat))
     print("Crit. Value = {}".format(crit_val))
     print("{} the Ho!".format("Accept" if abs(test_stat) < abs(crit_val) else "Reject")) 
