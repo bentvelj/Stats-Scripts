@@ -2,8 +2,8 @@ from scipy.stats import t
 
 x = [int(i) for i in input("Enter x values separated by space: ").split()]
 y = [int(i) for i in input("Enter y values separated by space: ").split()]
-HYPB1 = int(input("Enter hypothesis test B1 (null hypothesis): "))
-HA = input("Enter alternative hypothesis (input <, >, or =/=): ")
+HYPB1 = int(input("Enter hypothesis test B1 (null hypothesis): ")) # Always 0 ??
+HA = input("Enter alternative hypothesis (input <, >, or =/=): ") # Always =/= ??
 alpha = float(input("Enter hypothesis significance value (between 0 and 1): "))
 
 n = len(x)
