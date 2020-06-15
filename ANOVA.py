@@ -1,4 +1,4 @@
-from scipy.stats import t
+from scipy.stats import t, f
 
 a = int(input("Enter the number of groups: "))
 D = []
@@ -20,11 +20,14 @@ SSTr = SST - SSE
 MSTr = SSTr / (a-1)
 MSE = SSE / (N - a)
 F = MSTr / MSE
+critVal = f.ppf(1 - alpha, a - 1, N - a)
+
 print("\nSST = {}".format(SST))
 print("SSE = {}".format(SSE))
 print("SSTr = {}".format(SST-SSE))
 print("MSTr = {}, MSE = {}".format(MSTr, MSE))
 print("F = {}".format(F))
+print("Critical Value = {}".format(critVal))
 
 n = [len(x) for x in D]
 means = [sum(x)/len(x) for x in D]
