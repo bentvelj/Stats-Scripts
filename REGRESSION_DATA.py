@@ -32,15 +32,9 @@ for i in residuals:
 print("\nSSE: {}".format(SSE))
 print("t_n-2 (test statistic) = {}".format(t_nMinus2))
 
-if HA == "<":
-    multiplier = -1
-else:
-    multiplier = 1
+multiplier = -1 if HA == "<" else 1
 
-if HA == "=/=":
-    tails = 2
-else:
-    tails = 1
+tails = 2 if HA == "=/=" else 1
 
 critVal = multiplier * abs((t.ppf(alpha/tails, n-2)))
 
