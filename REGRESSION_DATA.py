@@ -1,6 +1,10 @@
+from scipy.stats import t
+
 x = [int(i) for i in input("Enter x values separated by space: ").split()]
 y = [int(i) for i in input("Enter y values separated by space: ").split()]
-HYPB1 = int(input("Enter hypothesis test B1 (if applicable): "))
+HYPB1 = int(input("Enter hypothesis test B1 (null hypothesis): "))
+HA = input("Enter alternative hypothesis (input <, >, or =/=): ")
+alpha = float(input("Enter hypothesis significance value (between 0 and 1): "))
 
 n = len(x)
 
@@ -27,3 +31,17 @@ for i in residuals:
     print(i, end=" ")
 print("\nSSE: {}".format(SSE))
 print("t_n-2 (test statistic) = {}".format(t_nMinus2))
+
+if HA == "<":
+    multiplier = -1
+else:
+    multiplier = 1
+
+if HA == "=/=":
+    tails = 2
+else:
+    tails = 1
+
+critVal = multiplier * abs((t.ppf(alpha/tails, n-2)))
+
+print("Critical value = {}".format(critVal))
