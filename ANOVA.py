@@ -3,7 +3,7 @@ from scipy.stats import t
 a = int(input("Enter the number of groups: "))
 D = []
 for i in range(a):
-    D.append([float(x) for x in input("Enter the elements of group " + str(i + 1) + ": ").split(',')])
+    D.append([float(x) for x in input("Enter the elements of group (comma separated) " + str(i + 1) + " : ").split(',')])
 alpha = float(input("Enter a two-tailed significance value (if applicable): "))
 N = sum([len(x) for x in D])
 GT = sum([sum(x) for x in D])
