@@ -10,7 +10,7 @@ Z_0 = (P_HAT - P_0) / (P_0 * (1 - P_0) / b) ** (1/2)
 
 tails = 2 if HA == "=/=" else 1
 
-critVal = norm.ppf(alpha/tails) if HA == "<" else norm.ppf((1-alpha)/tails)
+critVal = norm.ppf(alpha/tails) if HA == "<" else norm.ppf(1-alpha/tails)
 pVal = tails * norm.cdf(-abs(round(Z_0, 2)))
 
 conclusion = "Reject Null" if abs(Z_0) > abs(critVal) else "Accept Null"

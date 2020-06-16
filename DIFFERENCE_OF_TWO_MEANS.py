@@ -14,7 +14,7 @@ if(CASE == 1): ## NO TEST EXAMPLES
     Ha = input("Alternative Hypothesis (Enter <, >, or =/=): ")
     tails = 2 if Ha == "=/=" else 1
     test_stat = (xb1 - xb2)/((s1**2/n1 + s2**2/n2))**0.5
-    crit_val = norm.ppf(alpha/tails) if Ha == "<" else norm.ppf((1-alpha)/tails)
+    crit_val = norm.ppf(alpha/tails) if Ha == "<" else norm.ppf(1-alpha/tails)
     p_val = tails*norm.cdf(-abs(test_stat))
     print("\nTest Stat = {}".format(test_stat))
     print("Crit. Value = {}".format(crit_val))
