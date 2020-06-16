@@ -37,7 +37,7 @@ elif(CASE==2):
     print("\nTest Stat = {}".format(test_stat))
     print("Crit. Value = {}".format(crit_val))
     print("{} the Ho!".format("Accept" if test_stat < crit_val else "Reject"))
-    print("{}% CI: ({}, {}) ".format((1-alpha)*100,(xb1 - xb2) - abs(t.ppf(alpha/2,n1+n2-2))*(sp(1/n1 + 1/n2))**0.5,(xb1 - xb2) - abs(t.ppf(alpha/2,n1+n2-2))*(sp(1/n1 + 1/n2))**0.5) 
+    print("{}% CI: ({}, {}) ".format((1-alpha)*100,(xb1 - xb2) - abs(t.ppf(alpha/2,n1+n2-2))*(sp(1/n1 + 1/n2))**0.5,(xb1 - xb2) - abs(t.ppf(alpha/2,n1+n2-2))*(sp(1/n1 + 1/n2))**0.5)) 
         
 elif(CASE==3):
     n1 = int(input("Enter n for first group: "))
