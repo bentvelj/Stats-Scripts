@@ -8,8 +8,14 @@ xbar = sum(D)/len(D)
 s = (sum([(x-xbar)**2 for x in D])/(len(D)-1))**0.5
 test_stat = (xbar - pm)/(s/len(D)**0.5)
 crit_val = -abs(t.ppf(alpha/tails,len(D)-1)) if Ha == "<" else abs(t.ppf(alpha/tails,len(D)-1))
-#pValue = tails * norm.cdf(crit_val) 
+p_val = 0
+if(Ha == '>'):
+    p_val = 1 - t.cdf(test_stat,len(D)-1)
+elif(Ha == '<'):
+    p_val = t.cdf(test_stat,len(D)-1)
+else:
+    p_val = 2 * (1 - t.cdf(abs(test_stat),len(D)-1))
 print("\nTest Stat = {}".format(test_stat))
 print("Crit. Value = {}".format(crit_val))
-#print("P-Value = {}".format(pValue))
+print("P-Value = {}".format(p_val))
 print("{} the Ho!".format("Accept" if abs(test_stat) < abs(crit_val) else "Reject"))
